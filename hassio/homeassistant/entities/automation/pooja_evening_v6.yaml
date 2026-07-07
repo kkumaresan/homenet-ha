@@ -1,0 +1,28 @@
+# Pooja room WLED light — evening schedule (5:45 PM on, 10:30 PM off)
+- id: '1663294047218'
+  alias: Pooja_evening_On
+  description: Pooja_evening_On
+  trigger:
+  - platform: time
+    at: '17:45:00'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      color_temp: 338
+      brightness: 255
+    target:
+      entity_id: light.wled
+  mode: single
+- id: '1663294302855'
+  alias: Pooja_evening_Off
+  description: Pooja_evening_Off
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.wled
+  mode: single

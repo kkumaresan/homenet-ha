@@ -1,0 +1,19 @@
+# Sonoff door and motion sensors
+  - name: "sonoff homemain door sensor"
+    state_topic: "sai-nivas/sonoff/860A61/doorsens/homemain/status"
+    payload_on: "1"
+    payload_off: "0"
+    availability_topic: "sai-nivas/sonoff/352pic/tele/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+    device_class: opening
+  - name: "sonoff homemain motion sensor"
+    state_topic: "sai-nivas/sonoff/D7C2EE/doorsens/homemain/status"
+    payload_on: "1"
+    payload_off: "0"
+    availability_topic: "sai-nivas/sonoff/352pic/tele/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+    device_class: opening

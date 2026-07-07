@@ -1,0 +1,46 @@
+# ---- Environment secrets ----
+.env
+.env.current
+
+# ---- Home Assistant runtime data ----
+# .storage/ is SEEDED — ships working integration config, dashboard, entities.
+# Only exclude instance-unique / runtime-regenerated files:
+hassio/homeassistant/.storage/core.uuid
+hassio/homeassistant/.storage/core.restore_state
+hassio/homeassistant/.storage/trace.saved_traces
+hassio/homeassistant/.storage/http.auth
+hassio/homeassistant/.storage/frontend.user_data_*
+hassio/homeassistant/.storage/pre-restore-*/
+hassio/homeassistant/.cloud/
+hassio/homeassistant/home-assistant.log*
+hassio/homeassistant/home-assistant_v2.db*
+hassio/homeassistant/deps/
+hassio/homeassistant/tts/
+hassio/homeassistant/backups/
+hassio/homeassistant/tmp_backups/
+hassio/homeassistant/secrets.yaml
+
+# ---- Mosquitto runtime data ----
+mosquitto/config/pwfile
+mosquitto/data/
+mosquitto/log/
+
+# ---- Portainer runtime data ----
+portainer/portainer.db
+portainer/portainer.key
+portainer/portainer.pub
+portainer/docker_config/
+portainer/certs/
+portainer/chisel/
+portainer/backups/
+portainer/bin/
+portainer/tls/
+
+# ---- General ----
+**/*.pem
+**/*.key
+**/*.pub
+
+# ---- Docker inspect docs (reference only) ----
+docker-inspect-*.md
+docker-ps-a.md

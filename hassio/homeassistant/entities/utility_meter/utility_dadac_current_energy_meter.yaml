@@ -1,0 +1,16 @@
+  # Dad AC energy tracking
+  energy_dadac_daily:
+    name: energy_dadac_daily
+    source: sensor.energy_dadac_spent
+    cycle: daily
+    always_available: true  
+  energy_dadac_weekly:
+    name: energy_dadac_weekly
+    source: sensor.energy_dadac_spent
+    cycle: weekly
+    always_available: true  
+  energy_dadac_monthly:
+    name: energy_dadac_monthly
+    source: sensor.energy_dadac_spent
+    cycle: monthly
+    always_available: true

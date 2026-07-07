@@ -1,0 +1,32 @@
+# Study Fan — device endpoint info
+  - name: "study fan IP Address"
+    state_topic: "sai-nivas/study/fan/epip"
+    availability_topic: "sai-nivas/study/fan/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study fan EPmac Address"
+    state_topic: "sai-nivas/study/fan/epmac"
+    availability_topic: "sai-nivas/study/fan/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study fan APmac Address"
+    state_topic: "sai-nivas/study/fan/apmac"
+    availability_topic: "sai-nivas/study/fan/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study fan Signal Strength"
+    state_topic: "sai-nivas/study/fan/aprssi"
+    availability_topic: "sai-nivas/study/fan/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    unit_of_measurement: "dBm"
+  - name: "study fan Channel"
+    state_topic: "sai-nivas/study/fan/apchannel"
+    availability_topic: "sai-nivas/study/fan/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

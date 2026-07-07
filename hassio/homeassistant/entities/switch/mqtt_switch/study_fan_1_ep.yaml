@@ -1,0 +1,40 @@
+# Study Fan — Wemos + Sonoff ESP01
+
+  # Wemos controller
+  - name: "study fan Wemos Control"
+    command_topic: "kk/study/fan/control"
+    state_topic: "kk/study/fan/control/status"
+    availability_topic: "kk/study/fan/LWT"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    retain: true
+
+  # Automation toggle
+  - name: "study fan automation control"
+    command_topic: "kk/study/fan/automation"
+    state_topic: "kk/study/fan/automation"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    qos: 0
+    retain: true
+
+  # Sonoff ESP01 relay (NO mode — inverted payloads)
+  - name: "study fan one"
+    command_topic: "kk/study/fan/a11/a/cmnd/power"
+    state_topic: "kk/study/fan/a11/a/stat/POWER"
+    availability_topic: "kk/study/fan/a11/a/tele/LWT"
+    payload_on: "OFF"
+    payload_off: "ON"
+    state_on: "OFF"
+    state_off: "ON"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+    retain: true

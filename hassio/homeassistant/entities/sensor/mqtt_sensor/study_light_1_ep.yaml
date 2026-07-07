@@ -1,0 +1,32 @@
+# Study Light — device endpoint info
+  - name: "study light IP Address"
+    state_topic: "sai-nivas/study/light/epip"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study light EPmac Address"
+    state_topic: "sai-nivas/study/light/epmac"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study light APmac Address"
+    state_topic: "sai-nivas/study/light/apmac"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study light Signal Strength"
+    state_topic: "sai-nivas/study/light/aprssi"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    unit_of_measurement: "dBm"
+  - name: "study light Channel"
+    state_topic: "sai-nivas/study/light/apchannel"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

@@ -1,0 +1,31 @@
+# Study AC — device endpoint info
+  - name: "study ac IP Address"
+    state_topic: "kk/study/ac/epip"
+    availability_topic: "kk/study/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study ac EPmac Address"
+    state_topic: "kk/study/ac/epmac"
+    availability_topic: "kk/study/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study ac APmac Address"
+    state_topic: "kk/study/ac/apmac"
+    availability_topic: "kk/study/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study ac Signal Strength"
+    state_topic: "kk/study/ac/aprssi"
+    availability_topic: "kk/study/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "study ac Channel"
+    state_topic: "kk/study/ac/apchannel"
+    availability_topic: "kk/study/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

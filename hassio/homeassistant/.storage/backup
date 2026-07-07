@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "minor_version": 5,
+  "key": "backup",
+  "data": {
+    "backups": [
+      {
+        "backup_id": "0a458969",
+        "failed_agent_ids": []
+      },
+      {
+        "backup_id": "7f17e510",
+        "failed_agent_ids": []
+      },
+      {
+        "backup_id": "872416bf",
+        "failed_agent_ids": []
+      }
+    ],
+    "config": {
+      "agents": {},
+      "automatic_backups_configured": true,
+      "create_backup": {
+        "agent_ids": [
+          "backup.local"
+        ],
+        "include_addons": null,
+        "include_all_addons": false,
+        "include_database": true,
+        "include_folders": null,
+        "name": null,
+        "password": "G324-Z0JR-NYHP-4CV0-J7OQ-5RP3-73PT"
+      },
+      "last_attempted_automatic_backup": "2026-07-06T05:26:23.002229+05:30",
+      "last_completed_automatic_backup": "2026-07-06T05:26:43.597876+05:30",
+      "retention": {
+        "copies": 3,
+        "days": null
+      },
+      "schedule": {
+        "days": [],
+        "recurrence": "daily",
+        "state": "never",
+        "time": null
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+  Energy Dashboard:    # this is the name of the theme
+    energy-grid-consumption-color-0: "#ed2964"
+    energy-grid-consumption-color-1: "#ff7f17"
+    energy-grid-consumption-color-2: "#00ff00"
+    energy-grid-consumption-color-3: "#17e2fc"
+    energy-grid-consumption-color-4: "#d117ff"
+    energy-grid-consumption-color-5: "#e96697"
+    energy-grid-consumption-color-6: "#f79f07"

@@ -1,0 +1,2 @@
+# Automations (schedulers, heater indicators, pooja lights, safety)
+automation: !include_dir_merge_list ../entities/automation

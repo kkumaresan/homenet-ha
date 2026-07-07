@@ -1,0 +1,16 @@
+- id: '1751116420466'
+  alias: Hall 1 brightness
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 7549771053b6b3226f816ab2fc0e5718
+    entity_id: 6157048207ef5b46df2dcd12cfb9b4a4
+    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - device_id: 7549771053b6b3226f816ab2fc0e5718
+    domain: light
+    entity_id: 6157048207ef5b46df2dcd12cfb9b4a4
+    type: brightness_decrease
+  mode: single

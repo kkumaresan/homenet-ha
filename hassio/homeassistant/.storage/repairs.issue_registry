@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "repairs.issue_registry",
+  "data": {
+    "issues": [
+      {
+        "created": "2026-07-06T15:30:00.071118+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.climate_scheduler_common_service_not_found_python_script.climate_scheduler",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "python_script.climate_scheduler",
+          "entity_id": "automation.climate_scheduler_common",
+          "name": "Climate Scheduler common",
+          "edit": "/config/automation/edit/43b3ec78bd5241b3907312f82b455f6c"
+        }
+      },
+      {
+        "created": "2026-07-06T15:30:01.060004+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.common_utility_scheduler_timer_v6_service_not_found_python_script.common_utility_scheduler_v6",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "python_script.common_utility_scheduler_v6",
+          "entity_id": "automation.common_utility_scheduler_timer_v6",
+          "name": "Common Utility Scheduler timer v6",
+          "edit": "/config/automation/edit/e7f02d5ddc0c41c4bd29ac838af9281b"
+        }
+      },
+      {
+        "created": "2026-07-06T15:30:01.315118+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.switch_scheduler_common_service_not_found_python_script.common_switch_scheduler",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "python_script.common_switch_scheduler",
+          "entity_id": "automation.switch_scheduler_common",
+          "name": "Switch Scheduler common",
+          "edit": "/config/automation/edit/None"
+        }
+      },
+      {
+        "created": "2026-07-07T06:24:39.065037+00:00",
+        "dismissed_version": null,
+        "domain": "homeassistant_alerts",
+        "is_persistent": false,
+        "issue_id": "accuweather.markdown_accuweather"
+      }
+    ]
+  }
+}

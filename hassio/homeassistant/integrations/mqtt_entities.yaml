@@ -1,0 +1,6 @@
+# MQTT entities — climate controls, sensors, binary sensors, and switches
+mqtt:
+  climate: !include_dir_merge_list ../entities/climate/mqtt_climate
+  sensor: !include_dir_merge_list ../entities/sensor/mqtt_sensor
+  binary_sensor: !include_dir_merge_list ../entities/sensor/mqtt_binary_sensor
+  switch: !include_dir_merge_list ../entities/switch/mqtt_switch

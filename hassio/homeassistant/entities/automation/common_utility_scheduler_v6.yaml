@@ -1,0 +1,28 @@
+# Utility scheduler v6 — triggered by garage motion sensor state changes
+# Calls python_script.common_utility_scheduler_v6_wip
+- alias: 'Common Utility Scheduler timer v1'
+  initial_state: True
+  trigger:
+    - platform: state
+#     (OR) garage 1 off to TOSET
+      entity_id: 'sensor.garage_motion_s11_ts1'
+      from: "OFF"
+      to: "TOSET"
+#     (OR) garage 2 off to TOSET
+    - platform: state
+      entity_id: 'sensor.garage_motion_s21_ts1'
+      from: "OFF"
+      to: "TOSET"
+  action:
+    - delay:
+        seconds: 1
+    - service: python_script.common_utility_scheduler_v6_wip
+      data_template:
+        utilityentity: 'sensor.garage_motion_s11_ts1'
+        utilitytime:  '{{ trigger.now }}'    
+        stateentity: '{{ trigger.entity_id }}'
+    - service: python_script.common_utility_scheduler_v6_wip
+      data_template:
+        utilityentity: 'sensor.garage_motion_s12_ts1'
+        utilitytime:  '{{ trigger.now }}'    
+        stateentity: '{{ trigger.entity_id }}'

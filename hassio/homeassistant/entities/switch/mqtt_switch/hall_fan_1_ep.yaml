@@ -1,0 +1,40 @@
+# Hall Fan 1 — Wemos + Sonoff ESP01
+
+  # Wemos controller
+  - name: "hall fan Wemos Control"
+    command_topic: "kk/hall/fan/control"
+    state_topic: "kk/hall/fan/control/status"
+    availability_topic: "kk/hall/fan/LWT"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    retain: true
+
+  # Automation toggle
+  - name: "hall fan automation control"
+    command_topic: "kk/hall/fan/automation"
+    state_topic: "kk/hall/fan/automation"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    qos: 0
+    retain: true
+
+  # Sonoff ESP01 relay (NO mode — inverted payloads)
+  - name: "hall fan one"
+    command_topic: "kk/hall/fan/a11/a/cmnd/power"
+    state_topic: "kk/hall/fan/a11/a/stat/POWER"
+    availability_topic: "kk/hall/fan/a11/a/tele/LWT"
+    payload_on: "OFF"
+    payload_off: "ON"
+    state_on: "OFF"
+    state_off: "ON"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 0
+    retain: true

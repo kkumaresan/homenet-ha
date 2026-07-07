@@ -1,0 +1,25 @@
+# Hall AC — action counters
+  - name: "hall ac a011 counter"
+    state_topic: "kk/hall/ac/a011/counter"
+    availability_topic: "kk/hall/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac a012 counter"
+    state_topic: "kk/hall/ac/a012/counter"
+    availability_topic: "kk/hall/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac a013 counter"
+    state_topic: "kk/hall/ac/a013/counter"
+    availability_topic: "kk/hall/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac a014 counter"
+    state_topic: "kk/hall/ac/a014/counter"
+    availability_topic: "kk/hall/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

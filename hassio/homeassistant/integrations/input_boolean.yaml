@@ -1,0 +1,2 @@
+# Input Boolean helpers (toggles for scheduling and overrides)
+input_boolean: !include_dir_merge_named ../entities/input_boolean/hass_input_boolean

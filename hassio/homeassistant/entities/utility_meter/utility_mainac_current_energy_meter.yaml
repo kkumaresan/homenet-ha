@@ -1,0 +1,16 @@
+  # Main AC energy tracking
+  energy_mainac_daily:
+    name: energy_mainac_daily
+    source: sensor.energy_mainac_spent
+    cycle: daily
+    always_available: true  
+  energy_mainac_weekly:
+    name: energy_mainac_weekly
+    source: sensor.energy_mainac_spent
+    cycle: weekly
+    always_available: true  
+  energy_mainac_monthly:
+    name: energy_mainac_monthly
+    source: sensor.energy_mainac_spent
+    cycle: monthly
+    always_available: true  

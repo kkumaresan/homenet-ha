@@ -1,0 +1,51 @@
+# Study Light — Wemos controller + climate control + relays
+
+  # Wemos controller
+  - name: "study light Wemos Control"
+    command_topic: "sai-nivas/study/light/control"
+    state_topic: "sai-nivas/study/light/control/status"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    retain: true
+  # Climate automation toggle
+  - name: "study 1 climate control"
+    command_topic: "sai-nivas/study/ac/a/automation"
+    state_topic: "sai-nivas/study/ac/a/automation"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    qos: 0
+    retain: true
+  # Light relay 1
+  - name: "study light one"
+    command_topic: "sai-nivas/study/light/a21/a"
+    state_topic: "sai-nivas/study/light/a21/s"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    retain: true
+  # Light relay 2
+  - name: "study light two"
+    command_topic: "sai-nivas/study/light/a22/a"
+    state_topic: "sai-nivas/study/light/a22/s"
+    availability_topic: "sai-nivas/study/light/LWT"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+    retain: true

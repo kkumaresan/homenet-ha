@@ -1,0 +1,251 @@
+# Master AC — timer/scheduler sensor states
+# s11 Measure1 1
+  - name: "master ac s11 ts1"
+    state_topic: "kk/master/ac/a011/ts1"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1sec"
+    state_topic: "kk/master/ac/a011/ts1sec"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1vit"
+    state_topic: "kk/master/ac/a011/ts1vit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1 Limit"
+    state_topic: "kk/master/ac/a011/ts1limit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1 Condition"
+    state_topic: "kk/master/ac/a011/ts1gtlt"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1 Sampling"
+    state_topic: "kk/master/ac/a011/ts1samp"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts1 time Sampling"
+    state_topic: "kk/master/ac/a011/ts1ts"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+# s11 Measure1 2
+  - name: "master ac s11 ts2"
+    state_topic: "kk/master/ac/a011/ts2"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2sec"
+    state_topic: "kk/master/ac/a011/ts2sec"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2vit"
+    state_topic: "kk/master/ac/a011/ts2vit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2 Limit"
+    state_topic: "kk/master/ac/a011/ts2limit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2 Condition"
+    state_topic: "kk/master/ac/a011/ts2gtlt"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2 Sampling"
+    state_topic: "kk/master/ac/a011/ts2samp"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts2 Time Sampling"
+    state_topic: "kk/master/ac/a011/ts2ts"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+# s11 Measure1 3
+  - name: "master ac s11 ts3"
+    state_topic: "kk/master/ac/a011/ts3"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3sec"
+    state_topic: "kk/master/ac/a011/ts3sec"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3vit"
+    state_topic: "kk/master/ac/a011/ts3vit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3 Limit"
+    state_topic: "kk/master/ac/a011/ts3limit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3 Condition"
+    state_topic: "kk/master/ac/a011/ts3gtlt"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3 Sampling"
+    state_topic: "kk/master/ac/a011/ts3samp"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts3 Time Sampling"
+    state_topic: "kk/master/ac/a011/ts3ts"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+# s11 Measure1 4
+  - name: "master ac s11 ts4"
+    state_topic: "kk/master/ac/a011/ts4"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4sec"
+    state_topic: "kk/master/ac/a011/ts4sec"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4vit"
+    state_topic: "kk/master/ac/a011/ts4vit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4 Limit"
+    state_topic: "kk/master/ac/a011/ts4limit"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4 Condition"
+    state_topic: "kk/master/ac/a011/ts4gtlt"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4 Sampling"
+    state_topic: "kk/master/ac/a011/ts4samp"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac s11 ts4 Time Sampling"
+    state_topic: "kk/master/ac/a011/ts4ts"
+    availability_topic: "kk/master/ac/a011/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+#master ac sensor1 master parameters
+#ts1  
+  - name: "master ac s11 ts1 notifytime"
+    state_topic: "kk/master/ac/a011/ts1notifytime"
+    qos: 0
+  - name: "master ac s11 ts1 starttime"
+    state_topic: "kk/master/ac/a011/ts1starttime"
+    qos: 0
+  - name: "master ac s11 ts1 initialendtime"
+    state_topic: "kk/master/ac/a011/ts1initialendtime"
+    qos: 0
+  - name: "master ac s11 ts1 loadendtime"
+    state_topic: "kk/master/ac/a011/ts1loadendtime"
+    qos: 0
+  - name: "master ac s11 ts1 offbyscheduler"
+    state_topic: "kk/master/ac/a011/ts1offbyscheduler"
+    qos: 0
+  - name: "master ac s11 ts1 resettime"
+    state_topic: "kk/master/ac/a011/ts1resettime"
+    qos: 0
+#ts2  
+  - name: "master ac s11 ts2 notifytime"
+    state_topic: "kk/master/ac/a011/ts2notifytime"
+    qos: 0
+  - name: "master ac s11 ts2 starttime"
+    state_topic: "kk/master/ac/a011/ts2starttime"
+    qos: 0
+  - name: "master ac s11 ts2 initialendtime"
+    state_topic: "kk/master/ac/a011/ts2initialendtime"
+    qos: 0
+  - name: "master ac s11 ts2 loadendtime"
+    state_topic: "kk/master/ac/a011/ts2loadendtime"
+    qos: 0
+  - name: "master ac s11 ts2 offbyscheduler"
+    state_topic: "kk/master/ac/a011/ts2offbyscheduler"
+    qos: 0
+  - name: "master ac s11 ts2 resettime"
+    state_topic: "kk/master/ac/a011/ts2resettime"
+    qos: 0
+#ts3  
+  - name: "master ac s11 ts3 notifytime"
+    state_topic: "kk/master/ac/a011/ts3notifytime"
+    qos: 0
+  - name: "master ac s11 ts3 starttime"
+    state_topic: "kk/master/ac/a011/ts3starttime"
+    qos: 0
+  - name: "master ac s11 ts3 initialendtime"
+    state_topic: "kk/master/ac/a011/ts3initialendtime"
+    qos: 0
+  - name: "master ac s11 ts3 loadendtime"
+    state_topic: "kk/master/ac/a011/ts3loadendtime"
+    qos: 0
+  - name: "master ac s11 ts3 offbyscheduler"
+    state_topic: "kk/master/ac/a011/ts3offbyscheduler"
+    qos: 0
+  - name: "master ac s11 ts3 resettime"
+    state_topic: "kk/master/ac/a011/ts3resettime"
+    qos: 0
+#ts4  
+  - name: "master ac s11 ts4 notifytime"
+    state_topic: "kk/master/ac/a011/ts4notifytime"
+    qos: 0
+  - name: "master ac s11 ts4 starttime"
+    state_topic: "kk/master/ac/a011/ts4starttime"
+    qos: 0
+  - name: "master ac s11 ts4 initialendtime"
+    state_topic: "kk/master/ac/a011/ts4initialendtime"
+    qos: 0
+  - name: "master ac s11 ts4 loadendtime"
+    state_topic: "kk/master/ac/a011/ts4loadendtime"
+    qos: 0
+  - name: "master ac s11 ts4 offbyscheduler"
+    state_topic: "kk/master/ac/a011/ts4offbyscheduler"
+    qos: 0
+  - name: "master ac s11 ts4 resettime"
+    state_topic: "kk/master/ac/a011/ts4resettime"
+    qos: 0
+

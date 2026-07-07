@@ -1,0 +1,534 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Home",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "person.aru_ha"
+              ]
+            },
+            {
+              "show_current": true,
+              "show_forecast": true,
+              "type": "weather-forecast",
+              "entity": "weather.arunivas",
+              "forecast_type": "daily",
+              "forecast_slots": 7
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.hall_fan_one"
+                },
+                {
+                  "entity": "switch.hall_fan_two"
+                },
+                {
+                  "entity": "switch.master_fan_one"
+                },
+                {
+                  "entity": "switch.study_fan_one"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "hall",
+          "path": "hall",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Fan & Lights",
+                  "heading_style": "title",
+                  "icon": "mdi:power"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.hall_fan_one",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": 1
+                  },
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:fan",
+                  "name": "Fan One"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.hall_fan_two",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": 1
+                  },
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:fan",
+                  "name": "Fan Two"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "New section"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.hall_ac_1",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "fan_only",
+                        "off"
+                      ]
+                    }
+                  ],
+                  "show_current_as_primary": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading_style": "title",
+                  "heading": "Ambient Data",
+                  "icon": "mdi:coolant-temperature"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.hall_ambient_temperature",
+                      "name": "Temp."
+                    },
+                    {
+                      "entity": "sensor.hall_ambient_pressure",
+                      "name": "Pressure"
+                    },
+                    {
+                      "entity": "sensor.hall_ambient_altitude",
+                      "name": "Altitude"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Balcony & Kitchen",
+                  "heading_style": "title",
+                  "icon": "mdi:ceiling-light-multiple"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "master",
+          "path": "master",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Fan & Lights",
+                  "heading_style": "title",
+                  "icon": "mdi:power"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.master_fan_one",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": 1
+                  },
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:fan",
+                  "name": "Fan"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Master AC",
+                  "heading_style": "title",
+                  "icon": "mdi:air-conditioner"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.master_ac_1",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "fan_only",
+                        "off"
+                      ]
+                    }
+                  ],
+                  "show_current_as_primary": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Ambient Data",
+                  "heading_style": "title",
+                  "icon": "mdi:coolant-temperature"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.master_ambient_temperature",
+                      "name": "Temp."
+                    },
+                    {
+                      "entity": "sensor.master_ambient_pressure",
+                      "name": "Pressure"
+                    },
+                    {
+                      "entity": "sensor.master_ambient_altitude",
+                      "name": "Altitude"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "study",
+          "path": "study",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Fan & Lights",
+                  "heading_style": "title",
+                  "icon": "mdi:power"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.study_fan_one",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": 1
+                  },
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:fan",
+                  "show_entity_picture": false,
+                  "hide_state": false,
+                  "name": "Fan"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Study AC",
+                  "heading_style": "title",
+                  "icon": "mdi:air-conditioner"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.study_ac_1",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "fan_only",
+                        "off"
+                      ]
+                    }
+                  ],
+                  "show_current_as_primary": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Ambient Data",
+                  "heading_style": "title",
+                  "icon": "mdi:coolant-temperature"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.study_ambient_temperature",
+                      "name": "Temp."
+                    },
+                    {
+                      "entity": "sensor.study_ambient_pressure",
+                      "name": "Pressure"
+                    },
+                    {
+                      "entity": "sensor.study_ambient_altitude",
+                      "name": "Altitude"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "techpage",
+          "path": "techpage",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "IP VIew"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.master_ac_ip_address"
+                    },
+                    {
+                      "entity": "sensor.master_ac_epmac_address"
+                    },
+                    {
+                      "entity": "sensor.master_ac_apmac_address"
+                    },
+                    {
+                      "entity": "sensor.master_ac_signal_strength"
+                    },
+                    {
+                      "entity": "sensor.master_ac_channel"
+                    }
+                  ],
+                  "title": "Master AC"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.study_ac_ip_address"
+                    },
+                    {
+                      "entity": "sensor.study_ac_epmac_address"
+                    },
+                    {
+                      "entity": "sensor.study_ac_apmac_address"
+                    },
+                    {
+                      "entity": "sensor.study_ac_signal_strength"
+                    },
+                    {
+                      "entity": "sensor.study_ac_channel"
+                    }
+                  ],
+                  "title": "Study AC"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.hall_ac_ip_address"
+                    },
+                    {
+                      "entity": "sensor.hall_ac_epmac_address"
+                    },
+                    {
+                      "entity": "sensor.hall_ac_apmac_address"
+                    },
+                    {
+                      "entity": "sensor.hall_ac_signal_strength"
+                    },
+                    {
+                      "entity": "sensor.hall_ac_channel"
+                    }
+                  ],
+                  "title": "Hall AC"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "System Monitor"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_free"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_free_config"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_usage"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_usage_config"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_use"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_disk_use_config"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_ipv4_address_eth0"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_last_boot"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_load_15m"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_load_1m"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_load_5m"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_memory_free"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_memory_usage"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_memory_use"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_processor_temperature"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_processor_use"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_swap_free"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.system_monitor_swap_usage"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "housekeeping",
+          "path": "housekeeping",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "New section"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

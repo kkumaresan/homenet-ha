@@ -1,0 +1,31 @@
+# Parameters utility studyheater studyheater 
+  - name: "utility studyheater IP Address"
+    state_topic: "sai-nivas/utility/studyheater/epip"
+    availability_topic: "sai-nivas/utility/studyheater/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyheater EPmac Address"
+    state_topic: "sai-nivas/utility/studyheater/epmac"
+    availability_topic: "sai-nivas/utility/studyheater/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyheater APmac Address"
+    state_topic: "sai-nivas/utility/studyheater/apmac"
+    availability_topic: "sai-nivas/utility/studyheater/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyheater Signal Strength"
+    state_topic: "sai-nivas/utility/studyheater/aprssi"
+    availability_topic: "sai-nivas/utility/studyheater/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyheater Channel"
+    state_topic: "sai-nivas/utility/studyheater/apchannel"
+    availability_topic: "sai-nivas/utility/studyheater/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

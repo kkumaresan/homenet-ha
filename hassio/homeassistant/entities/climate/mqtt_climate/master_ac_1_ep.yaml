@@ -1,0 +1,38 @@
+# Master bedroom AC — MQTT climate control
+  - name: "master ac 1"
+    unique_id: "master_ac_1"
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "off"
+    swing_modes:
+      - "lowest"
+      - "low"
+      - "middle"
+      - "highest"
+      - "off"
+      - "auto"
+    fan_modes:
+      - "low"
+      - "high"
+    initial: 25
+    min_temp: 16
+    max_temp: 32
+    availability_topic: "kk/master/ac11/LWT"
+    mode_state_topic: "kk/master/ac11/s"
+    mode_command_topic: "kk/master/ac11/a"
+    temperature_state_topic: "kk/master/ac12/s"
+    temperature_command_topic: "kk/master/ac12/a"
+    fan_mode_state_topic: "kk/master/ac13/s"
+    fan_mode_command_topic: "kk/master/ac13/a"
+    swing_mode_state_topic: "kk/master/ac14/s"
+    swing_mode_command_topic: "kk/master/ac14/a"
+    #power_command_topic: "kk/master/ac15/a"
+    current_temperature_topic: "kk/master/ambient/temperature"
+    payload_available: "1"
+    payload_not_available: "0"
+    precision: 1.0
+    retain: true
+    qos: 2

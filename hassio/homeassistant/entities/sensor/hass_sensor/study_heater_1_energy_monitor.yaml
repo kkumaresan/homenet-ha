@@ -1,0 +1,30 @@
+# Study heater — power/energy calculations (current sensor x mains voltage)
+  - platform: template
+    sensors:
+      power_studyheater_watts:
+        unit_of_measurement: 'W'
+        device_class: energy
+        value_template: >
+          {% set R = states('sensor.utility_studyheater_s11_value') | float(0) %}
+          {{  ((R) * 220) | round(2) }}
+  - platform: template
+    sensors:
+      power_studyheater_kw:
+        unit_of_measurement: 'kW'
+        device_class: energy
+        value_template: >
+          {% set W = states('sensor.power_studyheater_watts') | float(0) %}
+          {{ W / 1000 }}          
+  - platform: integration
+    source: sensor.power_studyheater_watts
+    name: energy_studyheater_spent
+    unit_prefix: k
+    method: trapezoidal
+    round: 2
+  - platform: statistics
+    name: kw_studyheater_daily
+    entity_id: sensor.power_studyheater_watts
+    sampling_size: 100
+    max_age: 
+      hours: 24
+    state_characteristic: total 

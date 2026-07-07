@@ -1,0 +1,74 @@
+# Heater indicator LEDs — turn OFF when heater goes to OFF state
+# Publishes MQTT payload "1" to deactivate the indicator relay
+
+  - alias: dadheater indicator OFF
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.utility_dadheater_s11_ts2
+      to: "OFF"
+    action:
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data:
+        topic: "sai-nivas/utility/heaterindicator/cmnd/power1"
+        payload: "1"
+        retain: true
+
+  - alias: kidsheater indicator OFF
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.utility_kidsheater_s11_ts2
+      to: "OFF"
+    action:
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data:
+        topic: "sai-nivas/utility/heaterindicator/cmnd/power2"
+        payload: "1"
+        retain: true
+  - alias: mainheater indicator OFF
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.utility_mainheater_s11_ts2
+      to: "OFF"
+    action:
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data:
+        topic: "sai-nivas/utility/heaterindicator/cmnd/power3"
+        payload: "1"
+        retain: true
+  - alias: studyheater indicator OFF
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.utility_studyheater_s11_ts2
+      to: "OFF"
+    action:
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data:
+        topic: "sai-nivas/utility/heaterindicator/cmnd/power4"
+        payload: "1"
+        retain: true
+  - alias: powderheater indicator OFF
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.utility_powderheater_s11_ts2
+      to: "OFF"
+    action:
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data:
+        topic: "sai-nivas/utility/heaterindicator/cmnd/power5"
+        payload: "1"
+        retain: true

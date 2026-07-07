@@ -1,0 +1,30 @@
+# Study AC — power/energy calculations (current sensor x mains voltage)
+  - platform: template
+    sensors:
+      power_studyac_watts:
+        unit_of_measurement: 'W'
+        device_class: energy
+        value_template: >
+          {% set R = states('sensor.utility_studyac_s11_value') | float(0) %}
+          {{  ((R) * 220) | round(2) }}
+  - platform: template
+    sensors:
+      power_studyac_kw:
+        unit_of_measurement: 'kW'
+        device_class: energy
+        value_template: >
+          {% set W = states('sensor.power_studyac_watts') | float(0) %}
+          {{ W / 1000 }}          
+  - platform: integration
+    source: sensor.power_studyac_watts
+    name: energy_studyac_spent
+    unit_prefix: k
+    method: trapezoidal
+    round: 2
+  - platform: statistics
+    name: kw_studyac_daily
+    entity_id: sensor.power_studyac_watts
+    sampling_size: 100
+    max_age: 
+      hours: 24
+    state_characteristic: total 

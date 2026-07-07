@@ -1,0 +1,2 @@
+# Utility meters (daily/weekly/monthly energy tracking)
+utility_meter: !include_dir_merge_named ../entities/utility_meter

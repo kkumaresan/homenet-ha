@@ -1,0 +1,43 @@
+# Climate scheduler — runs every 10 minutes and on AC control state changes
+# Calls python_script.climate_scheduler for kids, main, and study rooms
+- alias: Climate Scheduler common
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+    seconds: 0
+  - platform: state
+    entity_id:
+    - switch.kids_1_climate_control
+    - switch.main_1_climate_control
+    - switch.study_1_climate_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id:
+    - switch.kids_1_climate_control
+    - switch.main_1_climate_control
+    - switch.study_1_climate_control
+    from: 'on'
+    to: 'off'
+  action:
+  - service: python_script.climate_scheduler
+    data_template:
+      climatetime: '{{ trigger.now  }}'
+      climateentity: '{{ trigger.entity_id }}'
+      stateentity: switch.kids_1_climate_control
+  - delay:
+      seconds: 1
+  - service: python_script.climate_scheduler
+    data_template:
+      climatetime: '{{ trigger.now  }}'
+      climateentity: '{{ trigger.entity_id }}'
+      stateentity: switch.main_1_climate_control
+  - delay:
+      seconds: 1
+  - service: python_script.climate_scheduler
+    data_template:
+      climatetime: '{{ trigger.now  }}'
+      climateentity: '{{ trigger.entity_id }}'
+      stateentity: switch.study_1_climate_control
+  id: 43b3ec78bd5241b3907312f82b455f6c

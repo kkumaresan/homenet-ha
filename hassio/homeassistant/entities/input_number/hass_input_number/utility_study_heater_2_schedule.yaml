@@ -1,0 +1,41 @@
+# Study heater — timer scheduler 2 (ts2) parameters
+  utility_studyheater_s11_ts2_initial_timer:
+    name: utility_studyheater_s11_ts2_initial_timer
+    initial: 0
+    min: 0
+    max: 120
+    step: 10
+    mode: slider
+    unit_of_measurement: minutes 
+  utility_studyheater_s11_ts2_load_timer:
+    name: utility_studyheater_s11_ts2_load_timer
+    initial: 0
+    min: 0
+    max: 60
+    step: 10
+    mode: slider
+    unit_of_measurement: minutes 
+  utility_studyheater_s11_ts2_reset_timer:
+    name: utility_studyheater_s11_ts2_reset_timer
+    initial: 0
+    min: 0
+    max: 24
+    step: 4
+    mode: slider
+    unit_of_measurement: hours
+  utility_studyheater_s11_ts2_reset_initial_timer:
+    name: utility_studyheater_s11_ts2_reset_initial_timer
+    initial: 0
+    min: 0
+    max: 24
+    step: 1
+    mode: slider
+    unit_of_measurement: hours
+  utility_studyheater_s11_ts2_tolerance:
+    name: utility_studyheater_s11_ts2_tolerance
+    initial: 0.5
+    min: 0
+    max: 1
+    step: 0.1
+    mode: slider
+    unit_of_measurement: amps

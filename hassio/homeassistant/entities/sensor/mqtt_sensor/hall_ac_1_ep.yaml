@@ -1,0 +1,31 @@
+# Hall AC — device endpoint info
+  - name: "hall ac IP Address"
+    state_topic: "kk/hall/ac/epip"
+    availability_topic: "kk/hall/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac EPmac Address"
+    state_topic: "kk/hall/ac/epmac"
+    availability_topic: "kk/hall/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac APmac Address"
+    state_topic: "kk/hall/ac/apmac"
+    availability_topic: "kk/hall/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac Signal Strength"
+    state_topic: "kk/hall/ac/aprssi"
+    availability_topic: "kk/hall/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "hall ac Channel"
+    state_topic: "kk/hall/ac/apchannel"
+    availability_topic: "kk/hall/ac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

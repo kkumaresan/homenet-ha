@@ -1,0 +1,26 @@
+# Switch scheduler — runs every 10 minutes and on dining cooler control changes
+# Calls python_script.common_switch_scheduler
+- alias: Switch Scheduler common
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+    seconds: 0
+  - platform: state
+    entity_id:
+    - switch.utility_diningcooler_automation_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id:
+    - switch.utility_diningcooler_automation_control
+    from: 'on'
+    to: 'off'
+  action:
+  - delay:
+      seconds: 1
+  - service: python_script.common_switch_scheduler
+    data_template:
+      eventtime: '{{ trigger.now  }}'
+      evententity: '{{ trigger.entity_id }}'
+      stateentity: switch.utility_diningcooler_automation_control

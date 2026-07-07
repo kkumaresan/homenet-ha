@@ -1,0 +1,2 @@
+# Template sensors (energy calculations from current readings)
+sensor: !include_dir_merge_list ../entities/sensor/hass_sensor

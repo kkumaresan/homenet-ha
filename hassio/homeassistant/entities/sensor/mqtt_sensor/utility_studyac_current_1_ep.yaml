@@ -1,0 +1,31 @@
+# Utility Study AC — current sensor endpoint info
+  - name: "utility studyac IP Address"
+    state_topic: "sai-nivas/utility/studyac/epip"
+    availability_topic: "sai-nivas/utility/studyac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyac EPmac Address"
+    state_topic: "sai-nivas/utility/studyac/epmac"
+    availability_topic: "sai-nivas/utility/studyac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyac APmac Address"
+    state_topic: "sai-nivas/utility/studyac/apmac"
+    availability_topic: "sai-nivas/utility/studyac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyac Signal Strength"
+    state_topic: "sai-nivas/utility/studyac/aprssi"
+    availability_topic: "sai-nivas/utility/studyac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "utility studyac Channel"
+    state_topic: "sai-nivas/utility/studyac/apchannel"
+    availability_topic: "sai-nivas/utility/studyac/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

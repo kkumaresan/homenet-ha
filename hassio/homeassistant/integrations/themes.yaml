@@ -1,0 +1,3 @@
+# Frontend themes (iOS dark mode, macOS, energy color)
+frontend:
+  themes: !include_dir_merge_named ../entities/themes

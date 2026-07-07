@@ -1,0 +1,63 @@
+# Utility scheduler — runs every 10 minutes and on automation control state changes
+# Calls python_script.common_utility_scheduler_v6 for each heater
+- alias: Common Utility Scheduler timer v6
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+    seconds: 0
+  - platform: state
+    entity_id: switch.utility_kidsheater_automation_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: switch.utility_mainheater_automation_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: switch.utility_dadheater_automation_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: switch.utility_studyheater_automation_control
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: switch.utility_powderheater_automation_control
+    from: 'off'
+    to: 'on'
+  action:
+  - delay:
+      seconds: 1
+  - service: python_script.common_utility_scheduler_v6
+    data_template:
+      utilityentity: switch.utility_kidsheater_automation_control
+      utilitytime: '{{ trigger.now }}'
+      stateentity: '{{ trigger.entity_id }}'
+  - delay:
+      seconds: 1
+  - service: python_script.common_utility_scheduler_v6
+    data_template:
+      utilityentity: switch.utility_mainheater_automation_control
+      utilitytime: '{{ trigger.now }}'
+      stateentity: '{{ trigger.entity_id }}'
+  - delay:
+      seconds: 1
+  - service: python_script.common_utility_scheduler_v6
+    data_template:
+      utilityentity: switch.utility_dadheater_automation_control
+      utilitytime: '{{ trigger.now }}'
+      stateentity: '{{ trigger.entity_id }}'
+  - delay:
+      seconds: 1
+  - service: python_script.common_utility_scheduler_v6
+    data_template:
+      utilityentity: switch.utility_studyheater_automation_control
+      utilitytime: '{{ trigger.now }}'
+      stateentity: '{{ trigger.entity_id }}'
+  - service: python_script.common_utility_scheduler_v6
+    data_template:
+      utilityentity: switch.utility_powderheater_automation_control
+      utilitytime: '{{ trigger.now }}'
+      stateentity: '{{ trigger.entity_id }}'
+  id: e7f02d5ddc0c41c4bd29ac838af9281b

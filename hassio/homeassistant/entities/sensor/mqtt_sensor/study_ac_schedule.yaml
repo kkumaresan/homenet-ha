@@ -1,0 +1,14 @@
+# Study AC — climate scheduler state sensors
+  - name: "study ac 1 starttime"
+    state_topic: "kk/study/ac/1/starttime"
+    qos: 0
+    #unit_of_measurement: "Time"
+  - name: "study ac 1 Fan savedstate"
+    state_topic: "kk/study/ac/1/fansavedstate"
+    qos: 0  
+  - name: "study ac 1 on by scheduler"
+    state_topic: "kk/study/ac/1/scheduleron"
+    qos: 0
+  - name: "study ac 1 Remote Data"
+    state_topic: "kk/study/ac/1/remotedata"
+    qos: 0   

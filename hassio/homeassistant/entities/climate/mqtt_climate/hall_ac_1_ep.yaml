@@ -1,0 +1,37 @@
+  - name: "hall ac 1"
+    unique_id: "hall_ac_1"
+    modes:
+      - "auto"
+      - "cool"
+      - "dry"
+      - "fan_only"
+      - "off"
+    swing_modes:
+      - "lowest"
+      - "low"
+      - "middle"
+      - "highest"
+      - "off"
+      - "auto"
+    fan_modes:
+      - "low"
+      - "high"
+    initial: 25
+    min_temp: 16
+    max_temp: 32
+    availability_topic: "kk/hall/ac11/LWT"
+    mode_state_topic: "kk/hall/ac11/s"
+    mode_command_topic: "kk/hall/ac11/a"
+    temperature_state_topic: "kk/hall/ac12/s"
+    temperature_command_topic: "kk/hall/ac12/a"
+    fan_mode_state_topic: "kk/hall/ac13/s"
+    fan_mode_command_topic: "kk/hall/ac13/a"
+    swing_mode_state_topic: "kk/hall/ac14/s"
+    swing_mode_command_topic: "kk/hall/ac14/a"
+    #power_command_topic: "kk/hall/ac15/a"
+    current_temperature_topic: "kk/hall/ambient/temperature"
+    payload_available: "1"
+    payload_not_available: "0"
+    precision: 1.0
+    retain: true
+    qos: 2

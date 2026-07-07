@@ -1,0 +1,41 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:2025.3.4
+    restart: always
+    ports:
+      - "${HA_PORT:-8123}:8123"
+    volumes:
+      - ${DOCKER_BASE}/hassio/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: bridge
+
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:2.0.21
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+      - "${MQTT_PORT:-1883}:1883"
+      - "${MQTT_WS_PORT:-9001}:9001"
+    volumes:
+      - ${DOCKER_BASE}/mosquitto/config:/mosquitto/config
+      - ${DOCKER_BASE}/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${DOCKER_BASE}/mosquitto/data:/mosquitto/data
+      - ${DOCKER_BASE}/mosquitto/log:/mosquitto/log
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/TZ:ro
+    network_mode: bridge
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:2.27.3
+    restart: always
+    ports:
+      - "${PORTAINER_PORT:-9000}:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${DOCKER_BASE}/portainer:/data
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: bridge

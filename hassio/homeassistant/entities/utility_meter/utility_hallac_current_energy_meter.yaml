@@ -1,0 +1,16 @@
+  # Hall AC energy tracking
+  energy_hallac_daily:
+    name: energy_hallac_daily
+    source: sensor.energy_hallac_spent
+    cycle: daily
+    always_available: true  
+  energy_hallac_weekly:
+    name: energy_hallac_weekly
+    source: sensor.energy_hallac_spent
+    cycle: weekly
+    always_available: true  
+  energy_hallac_monthly:
+    name: energy_hallac_monthly
+    source: sensor.energy_hallac_spent
+    cycle: monthly
+    always_available: true  

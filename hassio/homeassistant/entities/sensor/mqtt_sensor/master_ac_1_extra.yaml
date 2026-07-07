@@ -1,0 +1,25 @@
+# master ac s1 counters
+  - name: "master ac a011 counter"
+    state_topic: "kk/master/ac/a011/counter"
+    availability_topic: "kk/master/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac a012 counter"
+    state_topic: "kk/master/ac/a012/counter"
+    availability_topic: "kk/master/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac a013 counter"
+    state_topic: "kk/master/ac/a013/counter"
+    availability_topic: "kk/master/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0
+  - name: "master ac a014 counter"
+    state_topic: "kk/master/ac/a014/counter"
+    availability_topic: "kk/master/LWT"
+    payload_available: "1"
+    payload_not_available: "0"
+    qos: 0

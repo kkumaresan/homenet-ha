@@ -1,0 +1,7 @@
+  name: ALL_DEVICES
+  platform: group
+  services:
+    - service: mobile_app_jayanthis_iphonexr
+    - service: mobile_app_amudhas_iphone
+    - service: mobile_app_sridhars_iphone_2
+    - service: mobile_app_vasanthis_iphone

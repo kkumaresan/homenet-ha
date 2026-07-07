@@ -1,0 +1,9 @@
+  study_ac_schedule_1_fan_override:
+    name: study AC Schedule 1 Fan Override
+    initial: "on"
+  study_ac_schedule_2_fan_override:
+    name: study AC Schedule 2 Fan Override
+    initial: "on"
+  study_ac_schedule_3_fan_override:
+    name: study AC Schedule 3 Fan Override
+    initial: "on"

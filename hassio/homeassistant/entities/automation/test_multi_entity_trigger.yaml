@@ -1,0 +1,117 @@
+# Power monitoring test automations (disabled by default)
+# Monitors RYB phase current thresholds for home power supply
+
+- alias: RYB 3 amps
+  description: Alert when all three phases exceed 2A
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: sensor.utility_powerhome_s11_value 
+  - platform: state
+    entity_id: sensor.utility_powerhome_s12_value 
+  - platform: state
+    entity_id: sensor.utility_powerhome_s13_value 
+  condition:
+  - condition: template
+    value_template: >
+      {% set rvalue = states('sensor.utility_powerhome_s11_value') %}
+      {% set yvalue = states('sensor.utility_powerhome_s12_value') %}
+      {% set bvalue = states('sensor.utility_powerhome_s13_value') %}
+      {% if rvalue | float > 2.00 and
+           bvalue | float > 2.00 and
+           yvalue | float > 2.00 %}
+           true 
+        {% else %}  
+           false 
+        {% endif %}
+  action:
+  - delay:
+      seconds: 1
+  - service: persistent_notification.create
+    data_template:
+       message: RYB 3
+  id: e7f02d5ddc0c41c4bd29ac838af9281a
+
+- alias: R 10 amps
+  description: Alert when R phase exceeds 10A
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: sensor.utility_powerhome_s11_value
+  condition:
+  - condition: template
+    value_template: >
+      {% set rvalue = states('sensor.utility_powerhome_s11_value') %}
+      {% if rvalue | float > 10.00 %}
+           true
+        {% else %}
+           false
+        {% endif %}
+  action:
+  - delay:
+      seconds: 1
+  - service: persistent_notification.create
+    data_template:
+       message: R 10 amps
+  id: e7f02d5ddc0c41c4bd29ac838af9282a
+
+- alias: Y 10 amps
+  description: Alert when Y phase exceeds 10A
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: sensor.utility_powerhome_s12_value
+  condition:
+  - condition: template
+    value_template: >
+      {% set yvalue = states('sensor.utility_powerhome_s12_value') %}
+      {% if yvalue | float > 10.00 %}
+           true
+        {% else %}
+           false
+        {% endif %}
+  action:
+  - delay:
+      seconds: 1
+  - service: persistent_notification.create
+    data_template:
+       message: Y 10 amps
+  id: e7f02d5ddc0c41c4bd29ac838af9283a
+
+- alias: B 10 amps
+  description: Alert when B phase exceeds 10A
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: sensor.utility_powerhome_s13_value
+  condition:
+  - condition: template
+    value_template: >
+      {% set bvalue = states('sensor.utility_powerhome_s13_value') %}
+      {% if bvalue | float > 10.00 %}
+           true
+        {% else %}
+           false
+        {% endif %}
+  action:
+  - delay:
+      seconds: 1
+  - service: persistent_notification.create
+    data_template:
+       message: B 10 amps
+  id: e7f02d5ddc0c41c4bd29ac838af9284a
+
+- id: '1721409884352'
+  alias: Test Sai unavailable
+  description: Alert when study fan Sonoff becomes unavailable
+  trigger:
+  - platform: state
+    entity_id: switch.study_fan_sonoff
+  condition: []
+  action:
+  - wait_template: "{{is_state('switch.study_fan_sonoff', 'unavailable')}}"
+    continue_on_timeout: true
+  - service: persistent_notification.create
+    metadata: {}
+    data:
+      message: Sai Test unavailable
