@@ -1,6 +1,7 @@
 # ---- Environment secrets ----
 .env
 .env.current
+env-setup.md
 
 # ---- Home Assistant runtime data ----
 # .storage/ is SEEDED — ships working integration config, dashboard, entities.
@@ -10,14 +11,20 @@ hassio/homeassistant/.storage/core.restore_state
 hassio/homeassistant/.storage/trace.saved_traces
 hassio/homeassistant/.storage/http.auth
 hassio/homeassistant/.storage/frontend.user_data_*
+hassio/homeassistant/.storage/frontend.system_data
+hassio/homeassistant/.storage/lovelace.lovelace
+hassio/homeassistant/.storage/*.bak.*
 hassio/homeassistant/.storage/pre-restore-*/
 hassio/homeassistant/.cloud/
 hassio/homeassistant/home-assistant.log*
 hassio/homeassistant/home-assistant_v2.db*
+hassio/homeassistant/.cache/
+hassio/homeassistant/.ha_run.lock
 hassio/homeassistant/deps/
 hassio/homeassistant/tts/
 hassio/homeassistant/backups/
 hassio/homeassistant/tmp_backups/
+hassio/homeassistant-config-backup-*.tar.gz
 hassio/homeassistant/secrets.yaml
 
 # ---- Mosquitto runtime data ----
