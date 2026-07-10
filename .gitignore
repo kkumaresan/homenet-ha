@@ -12,9 +12,11 @@ hassio/homeassistant/.storage/trace.saved_traces
 hassio/homeassistant/.storage/http.auth
 hassio/homeassistant/.storage/frontend.user_data_*
 hassio/homeassistant/.storage/frontend.system_data
-hassio/homeassistant/.storage/lovelace.lovelace
 hassio/homeassistant/.storage/*.bak.*
 hassio/homeassistant/.storage/pre-restore-*/
+hassio/homeassistant/.storage/backup
+hassio/homeassistant/.storage/repairs.issue_registry
+hassio/homeassistant/.storage/bluetooth.passive_update_processor
 hassio/homeassistant/.cloud/
 hassio/homeassistant/home-assistant.log*
 hassio/homeassistant/home-assistant_v2.db*

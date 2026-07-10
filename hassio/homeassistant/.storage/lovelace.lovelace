@@ -1,7 +1,7 @@
 {
   "version": 1,
   "minor_version": 1,
-  "key": "lovelace",
+  "key": "lovelace.lovelace",
   "data": {
     "config": {
       "views": [
@@ -45,7 +45,7 @@
         {
           "type": "sections",
           "max_columns": 4,
-          "title": "hall",
+          "title": "Hall",
           "path": "hall",
           "sections": [
             {
@@ -160,14 +160,43 @@
                 }
               ]
             }
-          ]
+          ],
+          "cards": []
         },
         {
           "type": "sections",
           "max_columns": 4,
-          "title": "master",
+          "title": "Master",
           "path": "master",
           "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Master AC",
+                  "heading_style": "title",
+                  "icon": "mdi:air-conditioner"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.master_ac_1",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "fan_only",
+                        "off"
+                      ]
+                    }
+                  ],
+                  "show_current_as_primary": true
+                }
+              ]
+            },
             {
               "type": "grid",
               "cards": [
@@ -202,34 +231,6 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Master AC",
-                  "heading_style": "title",
-                  "icon": "mdi:air-conditioner"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.master_ac_1",
-                  "features": [
-                    {
-                      "type": "climate-hvac-modes",
-                      "hvac_modes": [
-                        "auto",
-                        "cool",
-                        "dry",
-                        "fan_only",
-                        "off"
-                      ]
-                    }
-                  ],
-                  "show_current_as_primary": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
                   "heading": "Ambient Data",
                   "heading_style": "title",
                   "icon": "mdi:coolant-temperature"
@@ -253,14 +254,43 @@
                 }
               ]
             }
-          ]
+          ],
+          "cards": []
         },
         {
           "type": "sections",
           "max_columns": 4,
-          "title": "study",
+          "title": "Study",
           "path": "study",
           "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Study AC",
+                  "heading_style": "title",
+                  "icon": "mdi:air-conditioner"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.study_ac_1",
+                  "features": [
+                    {
+                      "type": "climate-hvac-modes",
+                      "hvac_modes": [
+                        "auto",
+                        "cool",
+                        "dry",
+                        "fan_only",
+                        "off"
+                      ]
+                    }
+                  ],
+                  "show_current_as_primary": true
+                }
+              ]
+            },
             {
               "type": "grid",
               "cards": [
@@ -297,34 +327,6 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Study AC",
-                  "heading_style": "title",
-                  "icon": "mdi:air-conditioner"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.study_ac_1",
-                  "features": [
-                    {
-                      "type": "climate-hvac-modes",
-                      "hvac_modes": [
-                        "auto",
-                        "cool",
-                        "dry",
-                        "fan_only",
-                        "off"
-                      ]
-                    }
-                  ],
-                  "show_current_as_primary": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
                   "heading": "Ambient Data",
                   "heading_style": "title",
                   "icon": "mdi:coolant-temperature"
@@ -348,12 +350,13 @@
                 }
               ]
             }
-          ]
+          ],
+          "cards": []
         },
         {
           "type": "sections",
           "max_columns": 4,
-          "title": "techpage",
+          "title": "Techpage",
           "path": "techpage",
           "sections": [
             {
@@ -509,12 +512,13 @@
                 }
               ]
             }
-          ]
+          ],
+          "cards": []
         },
         {
           "type": "sections",
           "max_columns": 4,
-          "title": "housekeeping",
+          "title": "Housekeeping",
           "path": "housekeeping",
           "sections": [
             {
@@ -526,7 +530,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "cards": []
         }
       ]
     }
