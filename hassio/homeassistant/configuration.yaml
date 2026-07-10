@@ -27,8 +27,15 @@ http:
 tts:
   - platform: google_translate
 
-# --- MQTT integration (broker configured via UI) ---
+# --- MQTT integration (broker configured here via secrets.yaml) ---
 mqtt:
+  broker: !secret mqtt_broker
+  port: 1883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  protocol: 5
+  discovery: true
+  discovery_prefix: homeassistant
 
 # --- Includes ---
 script: !include scripts.yaml

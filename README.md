@@ -36,14 +36,15 @@ chmod +x setup.sh
 # 5. Create the Mosquitto MQTT user/password
 docker run --rm -it \
   -v $DOCKER_BASE/mosquitto/config:/mosquitto/config \
-  eclipse-mosquitto:2.0.21 mosquitto_passwd -c /mosquitto/config/pwfile aru-mqtt
-#   ^ Enter your desired MQTT password when prompted
+  eclipse-mosquitto:2.0.21 mosquitto_passwd -c /mosquitto/config/pwfile "$MQTT_USERNAME"
+#   ^ Enter your MQTT password (must match MQTT_PASSWORD in .env)
 
 # 6. Start the stack
 docker compose up -d
 
-# 7. Access Home Assistant and complete first-boot setup
-#    http://<pi-ip>:8123  (login: aru_ha / ***REMOVED*** — CHANGE THIS IMMEDIATELY)
+# 7. Access Home Assistant and complete first-boot onboarding
+#    http://<pi-ip>:8123
+#    Create your owner account when prompted (no seeded login anymore).
 ```
 
 See **Post-Deploy Checklist** below for required first-boot configuration.
@@ -55,7 +56,7 @@ See **Post-Deploy Checklist** below for required first-boot configuration.
 1. **Installs Docker and Docker Compose plugin** (if not present)
 2. **Creates the directory structure** under `$DOCKER_BASE`
 3. **Generates `secrets.yaml`** for Home Assistant from `.env` values
-4. **Copies config files** — including the seeded `.storage/` (integrations, dashboard, entities) — and applies MQTT topic prefix substitution to entity YAML + `.storage/lovelace` + `.storage/core.config_entries`
+4. **Copies config files** — including the seeded `.storage/` (integrations, dashboard, entities) — and applies MQTT topic prefix substitution to entity YAML + `.storage/lovelace.lovelace` + `.storage/core.config_entries`
 5. **Applies mains voltage substitution** for energy calculation templates
 6. **Sets Mosquitto directory ownership** (UID 1883, required by the broker)
 7. **Generates self-signed TLS certificates** for Portainer
@@ -84,11 +85,14 @@ Copy `.env.example` to `.env` and fill in your values. `.env` is gitignored.
 | `DOCKER_USER` | `aruiot` | Linux user on the Pi |
 | `DOCKER_BASE` | `/home/aruiot/docker` | Root path for all service data |
 | `HA_NAME` | `arunivas` | Home Assistant instance name |
-| `HA_LATITUDE` / `HA_LONGITUDE` | Chennai coords | Location for sun/weather |
+| `HA_LATITUDE` / `HA_LONGITUDE` | *set yours* | Location for sun/weather (set your real coords in `.env`) |
 | `HA_TIMEZONE` | `Asia/Kolkata` | Timezone |
 | `HA_COUNTRY` / `HA_CURRENCY` | `IN` / `INR` | Locale settings |
 | `HA_UNIT_SYSTEM` | `metric` | `metric` or `us` |
 | `HA_MAINS_VOLTAGE` | `220` | Mains voltage for energy calcs (India=220, US=120, EU=230) |
+| `MQTT_BROKER` | `10.1.0.6` | MQTT broker address as seen from HA (Pi LAN IP) |
+| `MQTT_USERNAME` | `aru-mqtt` | MQTT username (must match `pwfile`) |
+| `MQTT_PASSWORD` | *set yours* | MQTT password (must match `pwfile`; gitignored in `.env`) |
 | `MQTT_PREFIX_1` | `kk` | First MQTT topic prefix (must match device firmware) |
 | `MQTT_PREFIX_2` | `sai-nivas` | Second MQTT topic prefix (must match device firmware) |
 | `HA_PORT` | `8123` | Home Assistant web UI port |
@@ -128,10 +132,10 @@ docker/                           # <- this repo
 │   ├── integrations/             # HA package includes (automation, mqtt, sensor, etc.)
 │   ├── entities/                 # MQTT sensors, switches, climate, binary sensors
 │   └── .storage/                 # Seeded HA state (integrations, dashboard, registry)
-│       ├── core.config_entries   # MQTT broker, Tasmota, Open-Meteo, mobile_app, etc.
+│       ├── core.config_entries   # Tasmota, Open-Meteo, systemmonitor, rpi_power, etc. (MQTT is in configuration.yaml)
 │       ├── core.entity_registry  # 430 pre-registered entities
-│       ├── lovelace              # Dashboard YAML
-│       ├── mobile_app            # Mobile app registrations
+│       ├── lovelace.lovelace     # Dashboard YAML
+│       ├── mobile_app            # (gitignored — re-register per instance)
 │       ├── person                # Person tracking
 │       └── ... (see "Seeded .storage" below)
 └── mosquitto/config/
@@ -163,24 +167,24 @@ working baseline — you don't start from a blank HA install.
 
 | File | Contents |
 |------|----------|
-| `core.config_entries` | Integration configs: MQTT broker, Tasmota, Open-Meteo, mobile_app (×3), systemmonitor, rpi_power, google_translate, met |
+| `core.config_entries` | Integration configs: Tasmota, Open-Meteo, systemmonitor, rpi_power, google_translate, met, etc. (MQTT is in `configuration.yaml`; mobile_app is re-registered per instance) |
 | `core.entity_registry` | 430 pre-registered entities (AC climates, MQTT sensors/switches, tasmota devices, mobile_app sensors) |
 | `core.device_registry` | Device definitions |
 | `core.area_registry` | Area definitions |
-| `lovelace` | Dashboard YAML (references `weather.arunivas`, AC climates, switches) |
+| `lovelace.lovelace` | Dashboard YAML (references `weather.arunivas`, AC climates, switches) |
 | `lovelace_dashboards` | Dashboard list |
-| `mobile_app` | Mobile app integration data |
 | `person` | Person tracking config |
-| `auth` / `auth_provider.homeassistant` | Default login: **user `aru_ha`, password `***REMOVED***`** |
-| `onboarding` | Marks onboarding complete |
 | `homeassistant.exposed_entities` | Voice assistant exposure settings |
 | `core.config` | Core HA config (name, location, etc.) |
-| `http` | HTTP server config |
+| `http` | HTTP server config (trusted_proxies) |
 
 ### What's NOT seeded (auto-regenerated per instance, gitignored)
 
 | File | Why excluded |
 |------|--------------|
+| `auth` / `auth_provider.homeassistant` | Owner account, password hash, refresh tokens — created during onboarding per instance |
+| `onboarding` | Onboarding state — fresh deploys run the onboarding wizard |
+| `mobile_app` | Mobile app registrations & tokens — re-register per instance |
 | `core.uuid` | Unique instance identifier — must be different per install |
 | `core.restore_state` | Runtime state cache — regenerated on boot |
 | `http.auth` | JWT signing key — security: must be unique per instance |
@@ -191,24 +195,23 @@ working baseline — you don't start from a blank HA install.
 
 ## Post-Deploy Checklist (REQUIRED for new instances)
 
-After `docker compose up -d` on a fresh deploy, log into Home Assistant
+After `docker compose up -d` on a fresh deploy, open Home Assistant
 (`http://<pi-ip>:8123`) and complete these steps:
 
-### 1. Change the default password ⚠️
-The seeded login is **`aru_ha` / `***REMOVED***`**. Change it immediately:
-- Go to **Profile → Security** (bottom left) → change password
+### 1. Complete onboarding (create owner account) ⚠️
+Fresh deploys run the HA onboarding wizard (no seeded login). Create your owner
+account and password when prompted.
 
-### 2. Update the MQTT broker IP
-The seeded MQTT config points to `10.1.0.6` (the original Pi's IP). Update it:
-- **Settings → Devices & Services → MQTT → Configure**
-- Change the broker IP to the new Pi's IP
-- Update the username/password to match the `pwfile` you created in step 5 of Quick Start
+### 2. Verify the MQTT broker connection
+MQTT is configured in `configuration.yaml` from `.env` (`MQTT_BROKER`,
+`MQTT_USERNAME`, `MQTT_PASSWORD`). Verify the broker connects:
+- **Settings → Devices & Services → MQTT** — should show "Connected"
+- The broker IP, username, and password come from `.env`; they must match the
+  `pwfile` you created in step 5 of Quick Start.
 
 ### 3. Re-register mobile apps
-The seeded `mobile_app` entries (Kumar's iPhone, SM-M346B, Kumaresan's iPad) have
-push tokens tied to the old instance. Delete and re-add them:
-- **Settings → Devices & Services → Mobile App** → delete old entries
-- Install the HA Companion app on each phone and log in to this new instance
+Mobile apps are NOT seeded (their push tokens are instance-specific). Add them:
+- Install the HA Companion app on each phone and log in to this instance
 
 ### 4. Review weather location
 Open-Meteo is pre-configured and free (no API key). It uses `zone.home` for location,
@@ -218,7 +221,7 @@ which comes from `HA_LATITUDE`/`HA_LONGITUDE` in `.env`. Verify at:
 ### 5. Verify IoT devices are publishing
 Check the MQTT broker for device traffic:
 ```bash
-docker exec mosquitto mosquitto_sub -h 127.0.0.1 -u aru-mqtt -P '<your-password>' -t 'kk/#' -v
+docker exec mosquitto mosquitto_sub -h 127.0.0.1 -u "$MQTT_USERNAME" -P "$MQTT_PASSWORD" -t 'kk/#' -v
 ```
 You should see `LWT` and sensor values from your ACs, fans, and lights.
 

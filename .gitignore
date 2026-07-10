@@ -6,6 +6,12 @@ env-setup.md
 # ---- Home Assistant runtime data ----
 # .storage/ is SEEDED — ships working integration config, dashboard, entities.
 # Only exclude instance-unique / runtime-regenerated files:
+# Auth & onboarding: per-instance (owner account, refresh tokens, password hash).
+# Fresh deploys run HA onboarding to create the owner account.
+hassio/homeassistant/.storage/auth
+hassio/homeassistant/.storage/auth_provider.homeassistant
+hassio/homeassistant/.storage/onboarding
+hassio/homeassistant/.storage/mobile_app
 hassio/homeassistant/.storage/core.uuid
 hassio/homeassistant/.storage/core.restore_state
 hassio/homeassistant/.storage/trace.saved_traces

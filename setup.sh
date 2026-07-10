@@ -21,7 +21,7 @@ source "${SCRIPT_DIR}/.env"
 # Validate required variables
 for var in DOCKER_USER DOCKER_BASE HA_NAME HA_LATITUDE HA_LONGITUDE HA_ELEVATION \
            HA_TIMEZONE HA_COUNTRY HA_CURRENCY HA_UNIT_SYSTEM HA_MAINS_VOLTAGE \
-           MQTT_PREFIX_1 MQTT_PREFIX_2; do
+           MQTT_PREFIX_1 MQTT_PREFIX_2 MQTT_BROKER MQTT_USERNAME MQTT_PASSWORD; do
     if [ -z "${!var:-}" ]; then
         echo "ERROR: Required variable ${var} is not set in .env"
         exit 1
@@ -34,6 +34,7 @@ echo "  Base dir:    ${DOCKER_BASE}"
 echo "  HA name:     ${HA_NAME}"
 echo "  Timezone:    ${HA_TIMEZONE}"
 echo "  MQTT prefix: ${MQTT_PREFIX_1}, ${MQTT_PREFIX_2}"
+echo "  MQTT broker: ${MQTT_BROKER}"
 echo ""
 
 # ============================================================
@@ -83,6 +84,9 @@ ha_timezone: "${HA_TIMEZONE}"
 ha_unit_system: "${HA_UNIT_SYSTEM}"
 ha_country: "${HA_COUNTRY}"
 ha_currency: "${HA_CURRENCY}"
+mqtt_broker: "${MQTT_BROKER}"
+mqtt_username: "${MQTT_USERNAME}"
+mqtt_password: "${MQTT_PASSWORD}"
 EOF
 echo "  -> ${SECRETS_FILE} written."
 
@@ -121,7 +125,7 @@ if [ "${MQTT_PREFIX_1}" != "${DEFAULT_PREFIX_1}" ] || [ "${MQTT_PREFIX_2}" != "$
          -exec sed -i "s|\"${ESC_OLD_1}/|\"${ESC_NEW_1}/|g" {} +
 
     # Also apply prefix substitution to seeded .storage JSON files (lovelace, config_entries)
-    for sf in "${DOCKER_BASE}/hassio/homeassistant/.storage/lovelace" \
+    for sf in "${DOCKER_BASE}/hassio/homeassistant/.storage/lovelace.lovelace" \
               "${DOCKER_BASE}/hassio/homeassistant/.storage/core.config_entries"; do
         [ -f "$sf" ] && sed -i "s|${ESC_OLD_1}/|${ESC_NEW_1}/|g" "$sf"
     done
@@ -131,7 +135,7 @@ if [ "${MQTT_PREFIX_1}" != "${DEFAULT_PREFIX_1}" ] || [ "${MQTT_PREFIX_2}" != "$
          -name '*.yaml' -type f \
          -exec sed -i "s|\"${ESC_OLD_2}/|\"${ESC_NEW_2}/|g" {} +
 
-    for sf in "${DOCKER_BASE}/hassio/homeassistant/.storage/lovelace" \
+    for sf in "${DOCKER_BASE}/hassio/homeassistant/.storage/lovelace.lovelace" \
               "${DOCKER_BASE}/hassio/homeassistant/.storage/core.config_entries"; do
         [ -f "$sf" ] && sed -i "s|${ESC_OLD_2}/|${ESC_NEW_2}/|g" "$sf"
     done
