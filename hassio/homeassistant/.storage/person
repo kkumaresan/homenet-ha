@@ -9,9 +9,8 @@
         "name": "aru_ha",
         "user_id": "438a24d9511e4024beaab62b0a67a983",
         "device_trackers": [
-          "device_tracker.kumaresans_ipad",
           "device_tracker.kumars_iphone",
-          "device_tracker.sm_m346b"
+          "device_tracker.kumaresans_ipad"
         ]
       }
     ]
